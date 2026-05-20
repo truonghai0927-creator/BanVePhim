@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class JDBCConnection {
-	private static final String URL = "jdbc:mysql://localhost:3306/movie_ticket_booking";
+	private static final String URL = "jdbc:mysql://localhost:3306/movie_ticket_booking?useSSL=false&serverTimezone=Asia/Ho_Chi_Minh";
 	private static final String USER = "root";
-	private static final String PASSWORD = "";
+	private static final String PASSWORD = "root123";
 
 	// Connect with default database
 	public static Connection getConnection() {
@@ -37,3 +37,4 @@ public class JDBCConnection {
 		return null;
 	}
 }
+
