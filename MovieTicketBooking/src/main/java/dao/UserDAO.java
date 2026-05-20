@@ -46,10 +46,8 @@ public class UserDAO implements IUserDAO {
 				phoneNumber = rs.getString("phonenumber");
 				role = Role.valueOf(rs.getString("role"));
 				
-				TicketDAO localTicketDAO = new TicketDAO();
-	            List<Ticket> tickets1 = localTicketDAO.getTicketsByUserId(id);
 	            
-				user = new User(id, username, password, email, phoneNumber, role, tickets1);
+				user = new User(id, username, password, email, phoneNumber, role, null);
 			}
 			rs.close();
 			st.close();
@@ -78,10 +76,8 @@ public class UserDAO implements IUserDAO {
 				String roleStr = rs.getString("role");
 				Role role = (roleStr != null) ? Role.valueOf(roleStr) : Role.USER; // Tránh lỗi null pointer
 
-				TicketDAO ticketDAO = new TicketDAO(); 
-	            List<Ticket> tickets = ticketDAO.getTicketsByUserId(id);
 				
-				user = new User(id, username, password, email, phoneNumber, role, tickets);
+				user = new User(id, username, password, email, phoneNumber, role, null);
 			}
 
 			rs.close();
